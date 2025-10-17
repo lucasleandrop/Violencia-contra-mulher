@@ -1,0 +1,948 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seção de Comentários com Respostas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #b57556;
+    }
+
+    textarea {
+      resize: none;
+      border-radius: 10px;
+      border: #b57556 solid;
+      padding: 5%;
+    }
+
+    .home {
+      height: 45rem;
+    }
+
+    .img_banner {
+      width: 100%;
+    }
+
+    .banner {
+      /* background: url(../src/img/four_women.png) center no-repeat; */
+      background-size: cover;
+      text-align: center;
+      padding-top: 50rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+
+    .titulo_container {
+      border-radius: 70px;
+      background-color: #b57556;
+      padding: 1%;
+      width: 45%;
+      color: #371b13;
+      position: absolute;
+      bottom: 140px;
+      box-shadow: #371b13 0px 54px 55px, #371b13 0px -12px 30px,
+        #371b13 0px 4px 6px, #371b13 0px 12px 13px, #371b13 0px -3px 5px;
+    }
+
+    .titulo_banner {
+      font-family: "Forum", cursive;
+      font-size: 4rem;
+    }
+
+    .subtitulo_banner {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      font-size: 2rem;
+      letter-spacing: 5px;
+    }
+
+    .titulo_help {
+      color: #f7d3ba;
+    }
+
+    .tool_titles {
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+      margin: 5% 20% 5% 20%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+
+    .tool_titulo {
+      margin-top: 20%;
+      border-top: solid #371b13;
+      border-bottom: solid #371b13;
+      padding: 10% 0%;
+    }
+
+    .tool_titulo_span {
+      font-family: "Lato", sans-serif;
+      font-size: 50px;
+      color: #371b13;
+      text-transform: uppercase;
+    }
+
+    .tool_subtitulo {
+      font-family: "Lato", sans-serif;
+      color: #371b13;
+    }
+
+    .btn_tool {
+      border: 4px solid #f7d3ba;
+      box-sizing: border-box;
+      border-radius: 24px;
+      background-color: #f7d3ba;
+      padding: 8%;
+      color: #371b13;
+      font-family: "Forum", cursive;
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 10% 0%;
+      cursor: pointer;
+      box-shadow: 0 0 0.2em black, 0 0 0.2em black, 0 0 0.2em black;
+    }
+
+    .tool_img {
+      border-radius: 50%;
+    }
+
+    .tool_btn_titulo {
+      margin-left: 10%;
+    }
+
+    .info_container {
+      background-color: #d49572;
+    }
+
+    .info_texts {
+      text-align: center;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row-reverse;
+    }
+
+    .info_img {
+      height: 45rem;
+      border-radius: 50%;
+      margin: 5% 10% 5% 0%;
+    }
+
+    .info_violence {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      color: #371b13;
+      font-size: 20px;
+      margin: 5% 5% 5% 10%;
+      text-align: justify;
+      border: 4px solid #b57556;
+      border-radius: 24px;
+      padding: 2%;
+      background-color: #f7d3ba;
+    }
+
+    .info_violence_titulo {
+      font-family: "Forum", cursive;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .link_penha {
+      text-decoration: underline;
+      margin-left: 12%;
+    }
+
+    .services_container {
+      background-color: #f0b595;
+      color: #371b13;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .services_text_h {
+      font-family: "Forum", cursive;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    .services_text {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      color: #371b13;
+      font-size: 20px;
+      margin: 5%;
+      text-align: justify;
+      border: 4px solid #d49572;
+      border-radius: 24px;
+      padding: 2%;
+      background-color: #f7d3ba;
+      font-size: 20px;
+    }
+
+    .services_guide {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      color: #371b13;
+      font-size: 20px;
+      margin: 5%;
+      text-align: justify;
+      border: 4px solid #d49572;
+      border-radius: 24px;
+      padding: 2%;
+      background-color: #f7d3ba;
+      font-size: 20px;
+    }
+
+    .services_guide_title {
+      font-family: "Forum", cursive;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    .font_change {
+      font-family: "Forum", cursive;
+      font-size: 24px;
+      margin-top: 10%;
+    }
+
+    .info_denuncia {
+      display: flex;
+    }
+
+    .denuncia_img {
+      height: 5rem;
+      margin: 0% 0% 5% 20%;
+    }
+
+    .input_area {
+      background-color: #eac2a9;
+      color: #371b13;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .cipher_img {
+      height: 40rem;
+      border-radius: 50%;
+      margin: 5% 5% 5% 0%;
+    }
+
+    .encode,
+    .decode {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      justify-items: center;
+      margin: 0 5% 5% 5%;
+    }
+
+    #encode_button,
+    #decode_button {
+      border: 4px solid #f7d3ba;
+      box-sizing: border-box;
+      border-radius: 24px;
+      background-color: #f7d3ba;
+      padding: 2%;
+      color: #371b13;
+      font-family: "Forum", cursive;
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 10%;
+      cursor: pointer;
+      box-shadow: 0 0 0.2em #b57556, 0 0 0.2em #b57556, 0 0 0.2em #b57556;
+    }
+
+    .label_offset1 {
+      font-family: "Forum", cursive;
+      color: #371b13;
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 2% 20% 1% 20%;
+      text-align: center;
+    }
+
+    .label_offset2 {
+      font-family: "Forum", cursive;
+      color: #371b13;
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 2% 33% 1% 38%;
+      text-align: center;
+    }
+
+    .label_encode_offset,
+    .label_encode_offset {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #offset_encode,
+    #offset_decode {
+      margin: 2% 30%;
+      border: solid #b57556;
+      box-sizing: border-box;
+      border-radius: 24px;
+      box-shadow: 0 0 0.2em #b57556, 0 0 0.2em #b57556, 0 0 0.2em #b57556;
+    }
+
+    #encrypted_text,
+    #decrypted_text {
+      border: #b57556 solid;
+      border-radius: 10px;
+      background-color: #d49572;
+      box-shadow: 0 0 0.2em #b57556, 0 0 0.2em #b57556, 0 0 0.2em #b57556;
+    }
+
+    .close_locker,
+    .open_locker {
+      text-align: center;
+      margin: 5%;
+    }
+
+    .copy_texto {
+      text-align: center;
+      padding: 1%;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+      background-color: #371b13;
+      color: #d49572;
+    }
+
+    .navbar {
+      background-color: #371b13;
+      height: 50px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-size: 1.2rem;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .navbar a {
+      color: #fff;
+      font-weight: bolder;
+    }
+
+    .navbar a:hover {
+      color: #000000;
+    }
+
+    .navbar li {
+      display: inline-block;
+      line-height: 2.5;
+      margin: 0 1%;
+    }
+
+    .help {
+      text-align: center;
+      font-family: "Forum", cursive;
+      color: #371b13;
+    }
+
+    .footer_titulo {
+      font-size: 2rem;
+      margin-top: 2%;
+    }
+
+    .footer_link {
+      display: inline-block;
+      width: 10%;
+      padding: 2rem 0;
+      margin: 0 2rem;
+      text-align: center;
+      color: #000000;
+    }
+
+    .footer_logo {
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .footer_legenda {
+      font-size: 1rem;
+    }
+
+    .help_links {
+      max-width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .clear_button {
+      border: 4px solid #f7d3ba;
+      box-sizing: border-box;
+      border-radius: 24px;
+      background-color: #f7d3ba;
+      padding: 2%;
+      color: #371b13;
+      font-family: "Forum", cursive;
+      font-weight: bolder;
+      font-size: 20px;
+      margin: 2%;
+      cursor: pointer;
+      box-shadow: 0 0 0.2em #b57556, 0 0 0.2em #b57556, 0 0 0.2em #b57556;
+      width: 20%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .comment-section {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 5px;
+    }
+
+    .comment-section h2 {
+      margin-bottom: 20px; /* Aumenta o espaçamento entre o título e o texto */
+      font-size: 1.5em; /* Deixa o título mais destacado */
+      font-weight: bold;
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .comment-form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .comment-form button {
+      padding: 10px 15px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .comment-form button:hover {
+      background-color: #45a049;
+    }
+
+    .comments {
+      margin-top: 20px;
+    }
+
+    .comment {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .comment-header {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .comment-body {
+      margin-top: 5px;
+    }
+
+    .reply-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .reply-button:hover {
+      background-color: #0056b3;
+    }
+
+    .reply-form {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .reply {
+      background-color: #f1f1f1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      margin-left: 20px;
+      border-radius: 5px;
+    }
+  </style>
+  <meta charset="utf-8" />
+  <title>CipherHelp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="sortcut icon" href="img/heart.png" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Forum&amp;family=Indie+Flower&amp;family=Lato:wght@900&amp;family=Montserrat:wght@100&amp;display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="home" id="header">
+    <img
+      class="img_banner"
+      src="four_women.png"
+      alt="Quatro mulheres abraçadas e olhando para frente"
+    />
+    <section class="banner">
+      <div class="titulo_container">
+        <h1 class="titulo_banner">
+          SOS<span class="titulo_help">Mulher</span>
+        </h1>
+        <p class="subtitulo_banner">
+          <a href="https://app.jotform.com/242925180512654" target="_blank"
+            >Proteção da mulher</a
+          >
+        </p>
+      </div>
+    </section>
+  </header>
+  <div class="download-message text-center" id="downloadMessage"></div>
+  <main>
+    <section class="tool_container" id="mission">
+      <article class="tool_titles">
+        <img
+          class="tool_img"
+          src="two_women.png"
+          alt="Duas mulheres se abraçando e olhando para frente"
+        />
+        <div class="tool_btn_titulo">
+          <h1 class="tool_titulo">
+            Enfrentar, por meio de um <br />
+            <span class="tool_titulo_span"
+              >mecanismo <br />
+              seguro,</span
+            ><br />
+            a violência contra a mulher.<br /><br />
+            <span class="tool_subtitulo">Essa é a nossa missão.</span>
+          </h1>
+
+          <a href="#link_services">
+            <button class="btn_tool">Mecanismo seguro</button>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="info_container" id="violencias">
+      <article class="info_texts">
+        <img
+          class="info_img"
+          src="hands3.png"
+          alt="Mãos de mulher entrelaçadas sobre fundo cinza"
+        />
+
+        <div class="comment-section">
+          <h2>Deixe seu comentário</h2>
+
+          <div class="comment-form">
+            <title>Informações levantadas na escola</title>
+            <h1>
+              Este estudo investiga a "violência entre pares" numa escola de
+              Esteio/RS. Participaram 161 alunos, sendo 102 da sétima e 59 da
+              oitava série, 67 meninas e 94 meninos, com idades entre 12 e 20
+              anos (M ± DP = 14,09 ± 1,19). Foi utilizado o questionário
+              "Violência entre Pares". Os resultados mostram que 56,9% dos
+              alunos foram vítimas, 82,0%, observadores e 38,5%, agressores.
+              Apenas 8,7% foram agredidos mais de três vezes. A agressão mais
+              frequente foi a verbal (47,2%), seguida da física (21,1%) e de
+              outras formas de agressão (13,7%). Discute-se o perfil dos
+              agressores, que são predominantemente também vítimas, e 70,3%
+              destas têm irmãos mais velhos. Há queda dos índices de vitimização
+              nos meninos conforme aumenta a idade. A maioria dos alunos avaliou
+              o ambiente escolar e a relação com os colegas como positiva, sem
+              associação entre vitimização e piora dessas avaliações. A presença
+              do bullying não foi significativa. Ensino público; violência;
+              ensino fundamental
+            </h1>
+          </div>
+        </div>
+
+        <script>
+          function addComment() {
+            // Obtém os valores dos campos
+            var name = document.getElementById("nameInput").value;
+            var comment = document.getElementById("commentInput").value;
+
+            // Verifica se os campos estão preenchidos
+            if (name === "" || comment === "") {
+              alert("Por favor, preencha seu nome e comentário.");
+              return;
+            }
+
+            // Cria um contêiner para o novo comentário
+            var commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Cria a estrutura do comentário
+            var commentHeader = document.createElement("div");
+            commentHeader.classList.add("comment-header");
+            commentHeader.textContent = name + " disse:";
+
+            var commentBody = document.createElement("div");
+            commentBody.classList.add("comment-body");
+            commentBody.textContent = comment;
+
+            // Botão de resposta
+            var replyButton = document.createElement("button");
+            replyButton.classList.add("reply-button");
+            replyButton.textContent = "Responder";
+            replyButton.onclick = function () {
+              showReplyForm(commentDiv);
+            };
+
+            // Formulário de resposta
+            var replyForm = document.createElement("div");
+            replyForm.classList.add("reply-form");
+            replyForm.innerHTML = `
+                  <input type="text" class="replyName" placeholder="Seu nome">
+                  <textarea class="replyComment" placeholder="Escreva sua resposta"></textarea>
+                  <button onclick="addReply(this)">Enviar Resposta</button>
+              `;
+
+            // Adiciona o cabeçalho, corpo do comentário e o botão de resposta ao contêiner do comentário
+            commentDiv.appendChild(commentHeader);
+            commentDiv.appendChild(commentBody);
+            commentDiv.appendChild(replyButton);
+            commentDiv.appendChild(replyForm);
+
+            // Adiciona o novo comentário à lista de comentários
+            document.getElementById("commentsBox").appendChild(commentDiv);
+
+            // Limpa os campos de entrada
+            document.getElementById("nameInput").value = "";
+            document.getElementById("commentInput").value = "";
+          }
+
+          function showReplyForm(commentDiv) {
+            var replyForm = commentDiv.querySelector(".reply-form");
+            replyForm.style.display = "block"; // Mostra o formulário de resposta
+          }
+
+          function addReply(button) {
+            // Obtém os valores da resposta
+            var replyName = button.parentNode.querySelector(".replyName").value;
+            var replyComment =
+              button.parentNode.querySelector(".replyComment").value;
+
+            // Verifica se os campos estão preenchidos
+            if (replyName === "" || replyComment === "") {
+              alert("Por favor, preencha seu nome e a resposta.");
+              return;
+            }
+
+            // Cria o contêiner da resposta
+            var replyDiv = document.createElement("div");
+            replyDiv.classList.add("reply");
+
+            // Cria o conteúdo da resposta
+            replyDiv.innerHTML =
+              "<strong>" +
+              replyName +
+              " respondeu:</strong><br>" +
+              replyComment;
+
+            // Adiciona a resposta ao comentário correspondente
+            button.parentNode.parentNode.appendChild(replyDiv);
+
+            // Limpa o formulário de resposta
+            button.parentNode.querySelector(".replyName").value = "";
+            button.parentNode.querySelector(".replyComment").value = "";
+
+            // Oculta o formulário de resposta
+            button.parentNode.style.display = "none";
+          }
+        </script>
+
+        <script>
+          // Função para verificar se o dispositivo é um smartphone
+          function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+          }
+
+          // Se for um dispositivo móvel, exibe a mensagem
+          if (isMobileDevice()) {
+            document.getElementById("downloadMessage").style.display = "block";
+          }
+
+          function addComment() {
+            // Obtém os valores dos campos
+            var name = document.getElementById("nameInput").value;
+            var comment = document.getElementById("commentInput").value;
+
+            // Verifica se os campos estão preenchidos
+            if (name === "" || comment === "") {
+              alert("Por favor, preencha seu nome e comentário.");
+              return;
+            }
+
+            // Cria um contêiner para o novo comentário
+            var commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Cria a estrutura do comentário
+            var commentHeader = document.createElement("div");
+            commentHeader.classList.add("comment-header");
+            commentHeader.textContent = name + " disse:";
+
+            var commentBody = document.createElement("div");
+            commentBody.classList.add("comment-body");
+            commentBody.textContent = comment;
+
+            // Botão de resposta
+            var replyButton = document.createElement("button");
+            replyButton.classList.add("reply-button");
+            replyButton.textContent = "Responder";
+            replyButton.onclick = function () {
+              showReplyForm(commentDiv);
+            };
+
+            // Formulário de resposta
+            var replyForm = document.createElement("div");
+            replyForm.classList.add("reply-form");
+            replyForm.innerHTML = `
+          <input type="text" class="replyName" placeholder="Seu nome">
+          <textarea class="replyComment" placeholder="Escreva sua resposta"></textarea>
+          <button onclick="addReply(this)">Enviar Resposta</button>
+      `;
+
+            // Adiciona o cabeçalho, corpo do comentário e o botão de resposta ao contêiner do comentário
+            commentDiv.appendChild(commentHeader);
+            commentDiv.appendChild(commentBody);
+            commentDiv.appendChild(replyButton);
+            commentDiv.appendChild(replyForm);
+
+            // Adiciona o novo comentário à lista de comentários
+            document.getElementById("commentsBox").appendChild(commentDiv);
+
+            // Limpa os campos de entrada
+            document.getElementById("nameInput").value = "";
+            document.getElementById("commentInput").value = "";
+          }
+
+          function showReplyForm(commentDiv) {
+            var replyForm = commentDiv.querySelector(".reply-form");
+            replyForm.style.display = "block"; // Mostra o formulário de resposta
+          }
+
+          function addReply(button) {
+            // Obtém os valores da resposta
+            var replyName = button.parentNode.querySelector(".replyName").value;
+            var replyComment =
+              button.parentNode.querySelector(".replyComment").value;
+
+            // Verifica se os campos estão preenchidos
+            if (replyName === "" || replyComment === "") {
+              alert("Por favor, preencha seu nome e a resposta.");
+              return;
+            }
+
+            // Cria o contêiner da resposta
+            var replyDiv = document.createElement("div");
+            replyDiv.classList.add("reply");
+
+            // Cria o conteúdo da resposta
+            replyDiv.innerHTML =
+              "<strong>" +
+              replyName +
+              " respondeu:</strong><br>" +
+              replyComment;
+
+            // Adiciona a resposta ao contêiner do comentário
+            button.parentNode.parentNode.appendChild(replyDiv);
+
+            // Limpa os campos de entrada da resposta
+            button.parentNode.querySelector(".replyName").value = "";
+            button.parentNode.querySelector(".replyComment").value = "";
+          }
+        </script>
+      </article>
+    </section>
+
+    <section class="services" id="link_services">
+      <iframe
+        src="https://www.iodraw.com/pt/tool/encrypt?embed"
+        width="100%"
+        height="600px"
+        style="border: 0px"
+      ></iframe>
+      <h1>
+        Peça socorro em sigilo. Digite seu pedido de socorro e clica em
+        encriptação e depois iniciar. Envie o texto criptografado e o link desse
+        site para a pessoa descriptografar. Somente a pessoa para quem enviar
+        vai conseguir ler o texto.
+      </h1>
+    </section>
+
+    <section class="help" id="ajuda">
+      <h5 class="footer_titulo">Redes de Apoio</h5>
+      <div class="help_links">
+        <a
+          href="https://www.gov.br/mdh/pt-br/ondh/"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="disque-100.png"
+            alt="Disque Direitos Humanos - Ligue 100"
+          />
+          <h3 class="footer_legenda">Ouvidoria Nacional de Direitos Humanos</h3>
+        </a>
+
+        <a
+          href="https://mdh.metasix.solutions/portal/servicos/informacao?t=50&amp;servico=234"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="denuncie_180.jpeg"
+            alt="Central de Atendimento à Mulher"
+          />
+          <h3 class="footer_legenda">Central de Atendimento à Mulher</h3>
+        </a>
+
+        <a
+          href="https://www.gov.br/mdh/pt-br/ondh/servicos/grupo-vulneravel"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="governo.jpeg"
+            alt="Logo Governo Brasileiro"
+          />
+          <h3 class="footer_legenda">Serviços de Ajuda</h3>
+        </a>
+
+        <a
+          href="https://www.gov.br/mdh/pt-br"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="mulheres_logo.png"
+            alt="Logo Mulheres em verde e amarelo"
+          />
+          <h3 class="footer_legenda">
+            Ministério da Mulher, da Família e dos Direitos Humanos
+          </h3>
+        </a>
+
+        <a
+          href="https://www.policiacivil.pr.gov.br/"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="policiapb.png"
+            alt="Logo Polícia CIvil do Paraná"
+          />
+          <h3 class="footer_legenda">Polícia Civil - PR</h3>
+        </a>
+
+        <a
+          href="https://www.policiacivil.pr.gov.br/"
+          target="_blank"
+          class="footer_link"
+        >
+          <img
+            class="footer_logo"
+            src="policiapb.png"
+            alt="Brasão da Polícia Civil da Paraíba"
+          />
+          <h3 class="footer_legenda">Delegacia Online - PR</h3>
+        </a>
+      </div>
+    </section>
+
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="#header"> Home 👩🏽</a>
+        </li>
+
+        <li>
+          <p class="tracinhos">|</p>
+        </li>
+
+        <li>
+          <a href="#mission"> Nossa Missão 👩🏼‍🦰</a>
+        </li>
+
+        <li>
+          <p class="tracinhos">|</p>
+        </li>
+
+        <li>
+          <a href="#violencias"> Deixe sua mensagem 👩🏿‍🦳</a>
+        </li>
+
+        <li>
+          <p class="tracinhos">|</p>
+        </li>
+
+        <li>
+          <a href="#link_services"> Faça seu pedido de socorro 👱🏼‍♀️</a>
+        </li>
+
+        <li>
+          <p class="tracinhos">|</p>
+        </li>
+
+        <li>
+          <p class="tracinhos">|</p>
+        </li>
+
+        <li>
+          <a href="#ajuda"> Ajuda 👵🏾</a>
+        </li>
+      </ul>
+    </nav>
+
+    <footer class="copyright">
+      <a href="https://www.linkedin.com/" target="_blank">
+        <p class="copy_texto">Copyright© Lucas Leandro 2025</p>
+      </a>
+    </footer>
+  </main>
+
+  <script src="index.js" type="module"></script>
+</body>
